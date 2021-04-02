@@ -13,11 +13,22 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+
+
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license == 'none') {
+    return ``;
+  } else {
+    return `## License 
+    This project is licensed under the ${license}. Click the link below to learn more about how you can use this project.`
+  }
+}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(responses) {
@@ -40,13 +51,20 @@ function generateMarkdown(responses) {
     ${responses.instructions}
     ## Usage
     ${responses.usage}
-    ## License
-    This application is covered under the ${responses.license}
-    
+
+    ${renderLicenseSection(response.license)}
+    ${renderLicenseLink(response.license)}
+
     ## Contributors
     Many thanks to those who contributed to this project:
     $
 
+    ## Questions
+    Questions or issues? 
+    For issues: ${response.issues}
+    To contact me:
+    * Github: [${responses.github}](https://github.com/${responses.github})
+    * Email: [${responses.email}]()
 `
 };
 

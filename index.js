@@ -45,7 +45,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "questions",
+        name: "issues",
         message: "What do I do if I have an issue? "
     },
     {
@@ -76,7 +76,7 @@ function init() {
             
             console.log(responses);
             const readmeString = generateMarkdown(responses);
-            // const generateMarkdown = generateMarkdown(responses);
+
     })
 }
 
