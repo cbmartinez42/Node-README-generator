@@ -36,7 +36,7 @@ const questions = [
     {
         type: "input",
         name: "contributors",
-        message: "Who contributed to this project"
+        message: "Who contributed to this project? If none, press enter"
     },
     {
         type: "input",
@@ -70,14 +70,21 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
+    console.log('')
+    // console.log('    -------  Readme Generator  -------')
+    console.log(' ,.-~*´¨¯¨`*·~-.¸-(_ README Generator _)-,.-~*´¨¯¨`*·~-.¸')
+    console.log('')
+    console.log('♪ ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛ ┗(°.°)┓ ┏(°.°)┛ ♪ ')
+    console.log('')
     inquirer.prompt(questions)
 
-        .then(responses => {
-            
-            console.log(responses);
-            const readmeString = generateMarkdown(responses);
+        .then(data => {
+            console.log(data);
+            const readmeString = generateMarkdown(data)
+        writeToFile('./dist/README.md', readmeString)
+        console.log('Check the "dist" directory for your shiny new README!')  
+    });
 
-    })
 }
 
 // Function call to initialize app
