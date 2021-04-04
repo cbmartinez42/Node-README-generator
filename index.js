@@ -63,26 +63,26 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateMarkdown(data), (err) => {
-    err ? console.log(err) : console.log('Success!') }
+    err ? console.log(err) : console.log("✔️   Check the 'dist' directory for your shiny new README! ✔️") }
 );
-}
+};
 
 
 // TODO: Create a function to initialize app
 function init() {
-    console.log('')
-    // console.log('    -------  Readme Generator  -------')
-    console.log(' ,.-~*´¨¯¨`*·~-.¸-(_ README Generator _)-,.-~*´¨¯¨`*·~-.¸')
-    console.log('')
-    console.log('♪ ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛ ┗(°.°)┓ ┏(°.°)┛ ♪ ')
-    console.log('')
+    console.log('');
+    console.log('   ,.-~*´¨¯¨`*·~-.¸-(_ README Generator _)-,.-~*´¨¯¨`*·~-.¸');
+    console.log('');
+    console.log('♫ ♪ ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛ ┗(°.°)┓ ┏(°.°)┛ ♪ ♫');
+    console.log('');
     inquirer.prompt(questions)
 
         .then(data => {
-            console.log(data);
+            // console.log(data);
             const readmeString = generateMarkdown(data)
-        writeToFile('./dist/README.md', readmeString)
-        console.log('Check the "dist" directory for your shiny new README!')  
+
+        writeToFile('./dist/README.md', data);
+        console.log('');
     });
 
 }

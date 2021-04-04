@@ -2,20 +2,22 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   // use switch or if
-  let badge;
+  let badge = '';
+  console.log(license)
   if (license === 'MIT') {
     badge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
-  } else if (license === 'Apache 2.0 License') {
+  } else if (license == 'Apache 2.0 License') {
     badge = '[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-  } else if (license === 'GNU GPL v3') {
+  } else if (license == 'GNU GPL v3') {
     badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
-  } else if (license === 'IBM Public License Version 1.0') {
+  } else if (license == 'IBM Public License Version 1.0') {
     badge = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
-  } else if (license === 'Mozilla Public License 2.0') {
+  } else if (license == 'Mozilla Public License 2.0') {
     badge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
   } else {
     badge = ''
   }
+  console.log('badge is ', badge)
 
   // console.log(license.toLowerCase() == 'mit')
 //   if(license.toLowerCase() == 'mit')
@@ -27,16 +29,16 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  let link;
-  if (license === 'MIT') {
+  let link = '';
+  if (license == 'MIT') {
     link = '[License: MIT](https://opensource.org/licenses/MIT)'
-  } else if (license === 'Apache 2.0 License') {
+  } else if (license == 'Apache 2.0 License') {
     link = '[License: Apache 2.0](https://opensource.org/licenses/Apache-2.0)'
-  } else if (license === 'GNU GPL v3') {
+  } else if (license == 'GNU GPL v3') {
     link = '[License: GPL v3](https://www.gnu.org/licenses/gpl-3.0)'
-  } else if (license === 'IBM Public License Version 1.0') {
+  } else if (license == 'IBM Public License Version 1.0') {
     link = '[License: IPL 1.0](https://opensource.org/licenses/IPL-1.0)'
-  } else if (license === 'Mozilla Public License 2.0') {
+  } else if (license == 'Mozilla Public License 2.0') {
     link = '[License: MPL 2.0](https://opensource.org/licenses/MPL-2.0)'
   } else {
     link = ''
@@ -68,7 +70,8 @@ ${contributors}`
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  // console.log(data);
+  return `# ${data.title.toUpperCase()}
 ${renderLicenseBadge(data.license)}
 ## Table of Contents
 - [Description](#description)
@@ -96,9 +99,9 @@ ${renderContributors(data.contributors)}
 
 ## Questions
 Questions or issues? 
-For issues: ${data.issues}
+* For issues: ${data.issues}
 To contact me:
-* Github: [${data.github}](https://github.com/${data.github})
+* Github: [${data.username}](https://github.com/${data.username})
 * Email: [${data.email}]()
 `
 };
