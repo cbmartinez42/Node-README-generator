@@ -1,8 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
-const generateMarkdown = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -13,7 +12,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter a description of your project:',
+        message: 'Please enter a description of your project. Please include any motivation and challenges:',
         name: 'description'
     },
     {
@@ -30,7 +29,7 @@ const questions = [
         type: 'list',
         message: 'What license should be applied to this application?',
         name: 'license',
-        choices: ['MIT', 'Apache 2.0 License', 'GNU GPL v3', 'IBM Public License Version 1.0', 'Mozilla Public License 2.0', 'None'],
+        choices: ['MIT License', 'Apache 2.0 License', 'GNU GPL v3 License', 'IBM Public License Version 1.0', 'Mozilla Public License 2.0', 'None'],
         default: 0,
     },
     {
@@ -41,12 +40,12 @@ const questions = [
     {
         type: "input",
         name: "tests",
-        message: "Is there a test included?"
+        message: "What tests are included? (enter n/a if none)"
     },
     {
         type: "input",
         name: "issues",
-        message: "What do I do if I have an issue? "
+        message: "What do I do if I have a question or an issue? (Email/Github info will be added later)"
     },
     {
         type: "input",
@@ -63,28 +62,29 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateMarkdown(data), (err) => {
-    err ? console.log(err) : console.log("✔️   Check the 'dist' directory for your shiny new README! ✔️") }
-);
+    err ? console.log(err) : console.log("(¯`·._.··¸.-~*´¨¯¨`*·~-.,-(_ Check the 'dist' directory for your shiny new README! _)-,.-~*´¨¯¨`*·~-.¸··._.·´¯)") }
+);  
 };
-
 
 // TODO: Create a function to initialize app
 function init() {
     console.log('');
-    console.log('   ,.-~*´¨¯¨`*·~-.¸-(_ README Generator _)-,.-~*´¨¯¨`*·~-.¸');
+    console.log('RRRRRR  EEEEEEE   AAA   DDDDD   MM    MM EEEEEEE     GGGG                                       tt                  ')
+    console.log('RR   RR EE       AAAAA  DD  DD  MMM  MMM EE         GG  GG   eee  nn nnn    eee  rr rr    aa aa tt     oooo  rr rr  ')
+    console.log('RRRRRR  EEEEE   AA   AA DD   DD MM MM MM EEEEE     GG      ee   e nnn  nn ee   e rrr  r  aa aaa tttt  oo  oo rrr  r ')
+    console.log('RR  RR  EE      AAAAAAA DD   DD MM    MM EE        GG   GG eeeee  nn   nn eeeee  rr     aa  aaa tt    oo  oo rr     ')
+    console.log('RR   RR EEEEEEE AA   AA DDDDDD  MM    MM EEEEEEE    GGGGGG  eeeee nn   nn  eeeee rr      aaa aa  tttt  oooo  rr     ')
     console.log('');
-    console.log('♫ ♪ ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛ ┗(°.°)┓ ┏(°.°)┛ ♪ ♫');
+    console.log(' ♫ ♪ ♫ ♪ ♫ ♪  ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛ ┗(°.°)┓ ┏(°.°)┛ ┗(°.°)┓ ┗(°.°)┛ ┏(°.°)┓ ┗(°.°)┛  ♪ ♫ ♪ ♫ ♪ ♫');
     console.log('');
     inquirer.prompt(questions)
 
         .then(data => {
-            // console.log(data);
             const readmeString = generateMarkdown(data)
 
         writeToFile('./dist/README.md', data);
         console.log('');
     });
-
 }
 
 // Function call to initialize app
