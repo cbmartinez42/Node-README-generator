@@ -12,6 +12,8 @@
 ## Description
 This is a README Generator using a Command Line Interface via Node.js. This is intended to streamline and provide consistency with README formats for open-source applications.
 
+Video demo: [https://youtu.be/g9rl6gTvHh8](https://youtu.be/g9rl6gTvHh8)
+
 ## Installation Instructions
 To install this application, please follow the below instructions:  
 Install using the dependencies for Inquirer and the pre-installed FS module. Use `npm init` and `npm install` to install any needed dependencies. 

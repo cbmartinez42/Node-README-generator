@@ -61,6 +61,12 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+    const dir = './dist';
+    fs.mkdir(dir, (err) => {
+        if (err) {
+            throw err;
+        }
+    })
     fs.writeFile(fileName, generateMarkdown(data), (err) => {
     err ? console.log(err) : console.log("(¯`·._.··¸.-~*´¨¯¨`*·~-.,-(_ Check the 'dist' directory for your shiny new README! _)-,.-~*´¨¯¨`*·~-.¸··._.·´¯)") }
 );  
